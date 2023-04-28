@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef } from 'react'; // useRef를 임포트하여 레퍼런스를 사용할 수 있다. 
-
+import classes from './NewTodo.module.css';
 const NewTodo:React.FC<{onAddTodo: (text:string) => void}> = (props) => {
 
     //JavaScript 를 사용 할 때에는, 우리가 특정 DOM 을 선택해야 하는 상황에 getElementById, querySelector 같은 DOM Selector 함수를 사용해서 DOM 을 선택합니다.
@@ -23,7 +23,7 @@ const NewTodo:React.FC<{onAddTodo: (text:string) => void}> = (props) => {
         props.onAddTodo(enteredText);
     };
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className={classes.form}>
             <label htmlFor='text'>Todo text</label>
             <input type="text" id="text" ref={todoTextInputRef}/>
             <button>Add todo</button>
