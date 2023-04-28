@@ -26,13 +26,20 @@ function App() {
     });
   };
 
+
+  const removeTodoHandler = (todoId:string) =>{
+    setTodos((prevTodos) =>{
+      return prevTodos.filter(todo => todo.id !== todoId); // todo.id에 해당하는 todo만 빼고 남긴다.
+      // filter() : 조건에 해당하는 값들만 걸러주는 함수이다. Array에 쓰이는 내장 함수이다. 
+    })
+  };
   return (
     <div className="App">
       {/* <Todos items={todos}/>
       <br/>
       <Moods items={moods}/> */}
       <NewTodo onAddTodo={addTodoHandler}/>
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveTodo={removeTodoHandler}/>
     </div>
   );
 }
